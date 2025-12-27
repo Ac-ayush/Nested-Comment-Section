@@ -5,6 +5,12 @@ import initialDataList from "../data/initialState";
 import { CommentType, VoteActionType } from "../types/common";
 import { CommentSection } from "../components/CommentSection";
 
+/**
+ * Improve Performance: currently we are travesing entire tree recursevly which is O(N^2),
+ * instead of traversing on data directly, use array to store IDs of items and a MAP to store {ID->data}
+ * and use that MAP to change data/state
+ */
+
 const CommentSectionContainer = () => {
   const [data, setData] = useState<CommentType[]>(initialDataList || []);
 
